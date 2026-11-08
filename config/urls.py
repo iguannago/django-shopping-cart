@@ -17,6 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from carts import views
+
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("carts", views.create_cart, name="create-cart"),
+    path("carts/<str:cart_id>/items", views.add_item, name="add-item"),
+    path("carts/<str:cart_id>/receipt", views.get_receipt, name="cart-receipt"),
 ]
